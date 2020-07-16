@@ -1,0 +1,21 @@
+<?php
+
+
+use Drupal\Core\Render\Markup;
+
+/**
+ * Implements hook_mail().
+ */
+function ex_form_mail(string $key, array &$message, array $params) {
+  $options = [
+    'langcode' => $message['langcode'],
+  ];
+  switch ($key) {
+    case 'important_event':
+      $message['subject'] = t('Number of updated nodes: @num', ['@num' => $params['updated_nodes']], $options);
+      $message['body'][] = Markup::create($params['message']);
+//$message['body'][] = $params['message'];
+      break;
+  }
+
+}

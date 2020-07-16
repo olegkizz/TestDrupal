@@ -1,0 +1,7 @@
+ex_form.example_form:
+  path: '/ex-form'
+  defaults:
+    _form:  '\Drupal\ex_form\Form\ExForm'
+    _title: 'Example Form Api Drupal 8'
+  requirements:
+    _permission: 'access content'
